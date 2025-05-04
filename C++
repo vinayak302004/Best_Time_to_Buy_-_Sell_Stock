@@ -1,0 +1,20 @@
+# C++
+
+class Solution {
+public:
+    int maxProfit(std::vector<int>& prices) {
+        int n = prices.size();
+        int max_profit = 0, cur_profit = 0, buy = prices[0];
+
+        for (int i = 1; i < n; ++i) {
+            if (prices[i] < buy) {
+                buy = prices[i];
+            } else {
+                cur_profit = prices[i] - buy;
+                max_profit = std::max(cur_profit, max_profit);
+            }
+        }
+
+        return max_profit;
+    }
+};
