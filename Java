@@ -1,0 +1,22 @@
+# Java
+
+class Solution 
+{
+    public int maxProfit(int[] prices) 
+    {
+        int n=prices.length,max_profit=0,cur_profit=0,buy=prices[0];
+        for(int i=1;i<n;i++)
+        {
+            if(prices[i]<buy)
+            {
+                buy=prices[i];
+            }
+            else
+            {
+                cur_profit=prices[i]-buy;
+                max_profit=Math.max(cur_profit,max_profit);
+            }
+        }
+        return max_profit;
+    }
+}
